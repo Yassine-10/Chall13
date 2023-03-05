@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="form-style-10">
+      <h3>Formulaire</h3>
+
+      <div [hidden]="submitted" style="width: 600px;">
+        <form (ngSubmit)="onSubmit()">
+          <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input matInput required id="nom" [(ngModel)]="citizen.nom"  [ngModelOptions]="{standalone: true}"name="nom">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>الإسم العائلي</mat-label>
+            <input matInput required id="nomAb" [(ngModel)]="citizen.nomArabe"  [ngModelOptions]="{standalone: true}"name="nomAb">
+          </mat-form-field>
+          </div>
+          <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Prenom</mat-label>
+            <input matInput required id="prenom" [(ngModel)]="citizen.prenom"  [ngModelOptions]="{standalone: true}"name="prenom">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>الإسم الشخصي</mat-label>
+            <input matInput required id="prenomAb" [(ngModel)]="citizen.prenomArabe"  [ngModelOptions]="{standalone: true}"name="prenomAb">
+          </mat-form-field>
+          </div>
+          <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>CIN</mat-label>
+            <input matInput required id="cin" [(ngModel)]="citizen.cin"  [ngModelOptions]="{standalone: true}"name="cin">
+          </mat-form-field>
+          </div>
+
+          <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Profession</mat-label>
+            <input matInput required id="profession" [(ngModel)]="citizen.profession"  [ngModelOptions]="{standalone: true}"name="profession">
+          </mat-form-field>
+          </div>
+
+
+
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Date de naissance</mat-label>
+            <input matInput (dateChange)="onDateChange($event)" [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker">
+
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <div class="form-group">
+            <mat-form-field appearance="fill">
+              <mat-label>Type de carte</mat-label>
+
+              <mat-select  [(ngModel)]="citizen.typeCarte"  [ngModelOptions]="{standalone: true}" >
+                <mat-option *ngFor="let t of types" [value]="t">{{t}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+
+          </div>
+
+          <input type="file" (change)="onSelectFile($event)">
+
+
+          <button type="submit" style="margin-top: 20px;" class="btn btn-success mt-1">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div></div>
+
